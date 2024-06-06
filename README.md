@@ -113,7 +113,7 @@ This sets the LNA to mid, and vga1 and 2 to 35
 ./bladerf_adsb mid 35 35
 ```
 
-#Service
+# Service
 
 I put a service file in here (that mostly works i think) so the script can be ran on startup.
 
