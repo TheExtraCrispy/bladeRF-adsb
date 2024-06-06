@@ -20,16 +20,15 @@ The decoder runs on any bladeRF including the [bladeRF x40](https://www.nuand.co
 
 The bladeRF project repository, [https://github.com/Nuand/bladeRF](bladeRF), contains [installation guides](https://github.com/Nuand/bladeRF/wiki#Getting_Started) for most operating systems.
 
-## Install and run dump1090-mutability
+## Install and run dump1090-fa
+
+Information about dump1090 and it's installation can be found on the [project's Github](https://github.com/flightaware/dump1090.git).
+
+Once dump1090-fa is installed, run it configured to accept raw data packets on port 30001 in net only mode:
 
 ````
-$ git clone https://github.com/mutability/dump1090.git
-$ cd dump1090
-$ make
-$ ./dump1090 --net-only --raw --interactive
+$ dump1090-fa --net-only --raw --interactive
 ````
-
-More information about dump1090 can be found on the [project's Github](https://github.com/mutability/dump1090.git).
 
 Once dump1090 is running visit the HTTP server setup by dump1090 at [http://localhost:8080](/http://localhost:8080/)
 
@@ -40,6 +39,9 @@ $ git clone https://github.com/Nuand/bladeRF-adsb
 $ cd bladeRF-adsb/bladeRF_adsb
 $ wget http://nuand.com/fpga/adsbx40.rbf
 $ wget http://nuand.com/fpga/adsbx115.rbf
+$ wget http://nuand.com/fpga/adsbxA4.rbf
+$ wget http://nuand.com/fpga/adsbxA5.rbf
+$ wget http://nuand.com/fpga/adsbxA9.rbf
 $ make
 $ ./bladeRF_adsb
 ````
