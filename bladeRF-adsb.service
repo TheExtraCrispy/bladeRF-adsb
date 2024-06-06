@@ -1,0 +1,17 @@
+[Unit]
+Description=BladeRF ADSB decoder on FPGA
+After=network-online.target
+Wants=network-online.target systemd-networkd-wait-online.service
+
+StartLimitIntervalSec=500
+StartLimitBurst=5
+
+[Service]
+Restart=on-failure
+RestartSec=5s
+WorkingDirectory=/home/crr/fork/bladeRF-adsb/bladeRF_adsb
+EnvironmentFile=/home/crr/fork/bladeRF-adsb/conf
+ExecStart=/home/crr/fork/bladeRF-adsb/bladeRF_adsb/bladeRF_adsb ${ARG1} ${ARG2} ${ARG3}
+[Install]
+WantedBy=multi-user.target
+

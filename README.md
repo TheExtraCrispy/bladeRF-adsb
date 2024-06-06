@@ -118,3 +118,14 @@ This sets the LNA to mid, and vga1 and 2 to 35
 I put a service file in here (that mostly works i think) so the script can be ran on startup.
 
 It also has a config file which is used to provide the parameters to the script when it autoruns.
+
+Its only configured for my installation though, I can't figure out how to set it up any other way, so you'll have to set the directories yourself.
+
+Open the bladeRF-adsb.service file, change the directories to reflect your installation. Once edited, move the file to /etc/systemd/system
+
+Then run
+
+```
+systemctl daemon-reload
+systemctl enable bladeRF-adsb.service
+```
