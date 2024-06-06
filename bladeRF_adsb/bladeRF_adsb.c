@@ -185,7 +185,14 @@ int main(int argc, char *argv[]) {
         else if ( !strcmp(argv[1], "max") )
             rx_config.rx_lna = BLADERF_LNA_GAIN_MAX ;
         else if ( !strcmp(argv[1], "unified") ) {
-            rx_config.unified_gain = 35;
+            if ( argc >= 3 ) {
+	        rx_config.unified_gain = atoi(argv[2]);
+		fprintf(stderr, "Set Unified Gain to %d\n", rx_config.unified_gain);
+		}
+	    else {
+                rx_config.unified_gain = 35;
+		fprintf(stderr, "Unified Gain defaulted to 35\n");
+		}
             goto bypass_lna;
         }
 
@@ -251,7 +258,7 @@ bypass_lna:
     }
 
     if (fpga_size == BLADERF_FPGA_A4 || fpga_size == BLADERF_FPGA_A5 || fpga_size == BLADERF_FPGA_A9) {
-        rx_config.unified_gain = 35;
+        fprintf(stderr, "FPGA size requires unified gain, make sure you provided one.\n");
     }
 
     if (status < 0 ) {
