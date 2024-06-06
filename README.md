@@ -77,3 +77,44 @@ $ ./build_bladerf.sh -r adsb -b bladeRF-micro -s A4
 $ ./build_bladerf.sh -r adsb -b bladeRF-micro -s A5
 $ ./build_bladerf.sh -r adsb -b bladeRF-micro -s A9
 ````
+
+## Usage
+
+Run the script as
+ 
+```
+./bladerf_adsb
+```
+
+Arguments can be provided for setting the LNA, vga1, vga2, and unified gain.
+
+The first argument sets the script to use unified gain, or  sets the LNA power. The LNA options are 'min', 'mid' and 'max'
+
+
+The second argument is an integer that either sets the unified gain level or vga1, depending on the first argument.
+
+The third argument sets vga2, and should not be provided in unified gain mode.
+
+Ex: This starts the script with the default unified gain of 35:
+
+```
+./bladerf_adsb unified
+```
+
+This specified a unified gain of 60
+
+```
+./bladerf_adsb unified 60
+```
+
+This sets the LNA to mid, and vga1 and 2 to 35
+
+```
+./bladerf_adsb mid 35 35
+```
+
+#Service
+
+I put a service file in here (that mostly works i think) so the script can be ran on startup.
+
+It also has a config file which is used to provide the parameters to the script when it autoruns.
