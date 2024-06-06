@@ -113,19 +113,27 @@ This sets the LNA to mid, and vga1 and 2 to 35
 ./bladerf_adsb mid 35 35
 ```
 
+#Note
+If you run the install script, the executable should be moved to your PATH, so (i think) you can forgo the './'
+
 # Service
 
 I put a service file in here (that mostly works i think) so the script can be ran on startup.
 
 It also has a config file which is used to provide the parameters to the script when it autoruns.
 
-Its only configured for my installation though, I can't figure out how to set it up any other way, so you'll have to set the directories yourself.
+I tried to make it more portable with a shady script. It creates a config file and moves things around so that they can be accessed with absolute paths
 
-Open the bladeRF-adsb.service file, change the directories to reflect your installation. Once edited, move the file to /etc/systemd/system
-
-Then run
-
+You can run it with
 ```
-systemctl daemon-reload
-systemctl enable bladeRF-adsb.service
+sudo ./install.sh a1 a2 a3
+```
+Where a1-3 are the 3 arguments you can optionally add on startup. 
+
+(The sudo is because the locations are protected) ((Not a virus i promise))
+
+Once the script is finished, you can activate the service with
+```
+sudo systemctl daemon-reload
+sudo systemctl enable bladeRF-adsb.service
 ```

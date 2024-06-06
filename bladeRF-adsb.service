@@ -9,9 +9,9 @@ StartLimitBurst=5
 [Service]
 Restart=on-failure
 RestartSec=5s
-WorkingDirectory=/home/crr/fork/bladeRF-adsb/bladeRF_adsb
-EnvironmentFile=/home/crr/fork/bladeRF-adsb/conf
-ExecStart=/home/crr/fork/bladeRF-adsb/bladeRF_adsb/bladeRF_adsb ${ARG1} ${ARG2} ${ARG3}
+EnvironmentFile=/etc/bladeRF-adsb/bladeRF_adsb_config 
+WorkingDirectory=/etc/bladeRF-adsb
+ExecStart=/bin/bladeRF_adsb ${ARG1} ${ARG2} ${ARG3}
 [Install]
 WantedBy=multi-user.target
 
