@@ -113,8 +113,6 @@ This sets the LNA to mid, and vga1 and 2 to 35
 ./bladerf_adsb mid 35 35
 ```
 
-#Note
-If you run the install script, the executable should be moved to your PATH, so (i think) you can forgo the './'
 
 # Service
 
