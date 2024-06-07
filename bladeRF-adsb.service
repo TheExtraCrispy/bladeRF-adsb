@@ -7,7 +7,7 @@ StartLimitIntervalSec=500
 StartLimitBurst=5
 
 [Service]
-Restart=on-failure
+Restart=always
 RestartSec=5s
 EnvironmentFile=/etc/bladeRF-adsb/bladeRF_adsb_config 
 WorkingDirectory=/etc/bladeRF-adsb
